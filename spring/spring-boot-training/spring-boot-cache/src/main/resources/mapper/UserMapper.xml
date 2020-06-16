@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xspace.cache.mapper.UserMapper">
+
+  <!-- 可根据自己的需求，是否要使用 -->
+  <resultMap type="com.xspace.cache.model.User" id="attributeValueMap">
+    <result property="userId" column="id"/>
+    <result property="userName" column="name"/>
+  </resultMap>
+
+  <select id="selectById" parameterType="java.lang.Long" resultType="com.xspace.cache.model.User">
+    select * from user where id=#{userId}
+  </select>
+</mapper>
