@@ -5,8 +5,8 @@
 
   <!-- 可根据自己的需求，是否要使用 -->
   <resultMap type="com.xspace.cache.model.User" id="attributeValueMap">
-    <result property="userId" column="id"/>
-    <result property="userName" column="name"/>
+    <result property="id" column="id"/>
+    <result property="name" column="name"/>
   </resultMap>
 
   <select id="selectById" parameterType="java.lang.Long" resultType="com.xspace.cache.model.User">

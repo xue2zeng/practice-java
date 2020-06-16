@@ -7,6 +7,6 @@ import java.io.Serializable;
 @Data
 public class User implements Serializable {
   private static final long serialVersionUID = -6563747627860446527L;
-  private long userId;
-  private String userName;
+  private long id;
+  private String name;
 }

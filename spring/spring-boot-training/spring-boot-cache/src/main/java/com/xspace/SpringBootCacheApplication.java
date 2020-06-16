@@ -7,8 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.xspace")
-@EnableMethodCache(basePackages = "com.xspace")
+@MapperScan(basePackages = "com.xspace.cache.mapper")
+@EnableMethodCache(basePackages = "com.xspace.cache.service")
 @EnableCreateCacheAnnotation
 public class SpringBootCacheApplication {
 
