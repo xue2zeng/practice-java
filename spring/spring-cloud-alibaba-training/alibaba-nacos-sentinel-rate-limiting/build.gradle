@@ -1,0 +1,16 @@
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation ('org.springframework.boot:spring-boot-starter-actuator')
+    implementation ('com.alibaba.cloud:spring-cloud-starter-dubbo')
+    implementation ('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery')
+    implementation ('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config')
+    implementation ('com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel')
+    implementation ('com.alibaba.csp:sentinel-datasource-nacos:1.7.2')
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

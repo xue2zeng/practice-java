@@ -1,0 +1,8 @@
+/** 需要org.springframework.boot插件 不需要打包成可执行的jar */
+bootJar.enabled(false)
+
+dependencies {
+  testImplementation('org.springframework.boot:spring-boot-starter-test') {
+    exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+  }
+}

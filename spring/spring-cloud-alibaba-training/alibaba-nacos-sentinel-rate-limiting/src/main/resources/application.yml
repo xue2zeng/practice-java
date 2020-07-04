@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: alibaba-nacos-sentinel-rate-limiting
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+      discovery:
+        server-addr: 127.0.0.1:8848
+        register-enabled: true
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080 #Sentinel 控制台地址
+      eager: true #取消Sentinel控制台懒加载
+      datasource:
+        ds:
+          nacos: #可以通过查看org.springframework.cloud.alibaba.sentinel.datasource.config.DataSourcePropertiesConfiguration和org.springframework.cloud.alibaba.sentinel.datasource.config.NacosDataSourceProperties两个类来分析具体的配置内容，会更为准确
+            server-addr: 127.0.0.1:8848 #nacos的访问地址
+            dataId: alibaba-nacos-sentinel-rate-limiting-sentinel #Nacos中存储规则的dataId
+            group: DEFAULT_GROUP #Nacos中存储规则的groupId
+            data-type: json
+            rule-type: flow #该参数是spring cloud alibaba升级到0.2.2之后增加的配置，用来定义存储的规则类型。所有的规则类型可查看枚举类：org.springframework.cloud.alibaba.sentinel.datasource.RuleType，每种规则的定义格式可以通过各枚举值中定义的规则对象来查看，比如限流规则可查看：com.alibaba.csp.sentinel.slots.block.flow.FlowRule
+server:
+  port: 8001
