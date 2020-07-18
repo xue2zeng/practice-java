@@ -1,14 +1,16 @@
 dependencies {
-    implementation project(':alibaba-nacos-dubbo-api')
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation ('org.springframework.boot:spring-boot-starter-actuator')
-    implementation ('com.alibaba.cloud:spring-cloud-starter-dubbo')
-    implementation ('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery')
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
+  implementation project(':alibaba-nacos-dubbo-api')
+  implementation 'org.springframework.boot:spring-boot-starter-web'
+  implementation('org.springframework.boot:spring-boot-starter-actuator')
+  implementation('com.alibaba.cloud:spring-cloud-starter-dubbo')
+  implementation('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery')
+  implementation('org.springframework.boot:spring-boot-starter-webflux')
+  implementation('org.springframework.cloud:spring-cloud-starter-openfeign:2.2.3.RELEASE')
+  testImplementation('org.springframework.boot:spring-boot-starter-test') {
+    exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+  }
 }
 
 test {
-    useJUnitPlatform()
+  useJUnitPlatform()
 }

@@ -10,7 +10,7 @@ buildscript {
   /* 定义环境变量 */
   ext {
     springIOVersion = '1.0.9.RELEASE'
-    springBootVersion = '2.3.1.RELEASE'
+    springBootVersion = '2.2.1.RELEASE'
   }
   /* 脚本运行的依赖 */
   repositories {
@@ -28,6 +28,8 @@ buildscript {
       mavenLocal()
       url REPOSITORY_URL
       mavenCentral()
+      jcenter()
+      google()
     }
 
   }
@@ -93,6 +95,8 @@ allprojects {
       mavenLocal()
       url REPOSITORY_URL
       mavenCentral()
+      jcenter()
+      google()
     }
   }
 }
@@ -100,8 +104,11 @@ allprojects {
 // 定义只有子工程才会执行的task
 subprojects {
   // 导入使用的插件
-  apply plugin: 'org.springframework.boot' // 如果导入该插件，需要指定main class，否则不能打包
-  apply plugin: 'io.spring.dependency-management' // 依赖管理，用来传递spring的依赖
+  apply plugin: 'idea'
+  apply plugin: 'org.springframework.boot'
+  apply plugin: 'io.spring.dependency-management'
+  apply plugin: 'java'
+  apply plugin: 'java-library'
 
   // jdk编译版本
   sourceCompatibility = JavaVersion.VERSION_11
@@ -124,6 +131,7 @@ subprojects {
 
   /** 在这里定义公用依赖 */
   dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     /** 热部署和lombok */
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
     compileOnly 'org.projectlombok:lombok:1.18.12'
