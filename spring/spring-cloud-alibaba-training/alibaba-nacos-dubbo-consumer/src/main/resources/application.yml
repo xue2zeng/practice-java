@@ -28,3 +28,8 @@ dubbo:
   cloud:
     subscribed-services: alibaba-nacos-dubbo-producer
 
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html

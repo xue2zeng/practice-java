@@ -1,9 +1,10 @@
 package com.xspace.nacos.api.dto;
 
-import com.xspace.nacos.api.enumerate.MessageEnum;
+import com.xspace.nacos.api.enumerate.ResponseEnum;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Data
 public class Result<T> implements Serializable {
@@ -13,20 +14,23 @@ public class Result<T> implements Serializable {
   private String message;
   private T data;
   private String url;
+  private LocalDateTime timestamp;
 
   public Result(Integer code, String message) {
     this.code = code;
     this.message = message;
+    this.timestamp = LocalDateTime.now();
   }
 
   public Result(Integer code, String message, T data) {
     this.code = code;
     this.message = message;
     this.data = data;
+    this.timestamp = LocalDateTime.now();
   }
 
   public static <T> Result<T> success() {
-    return new Result<T>(MessageEnum.SUCCESS.getCode(), MessageEnum.SUCCESS.getMessage());
+    return new Result<T>(ResponseEnum.SUCCESS.getCode(), ResponseEnum.SUCCESS.getMessage());
   }
 
   public static <T> Result<T> success(T data) {
@@ -35,12 +39,12 @@ public class Result<T> implements Serializable {
     return result;
   }
 
-  public static <T> Result<T> failure(MessageEnum messageEnum) {
-    return new Result<T>(messageEnum.getCode(), messageEnum.getMessage());
+  public static <T> Result<T> failure(ResponseEnum responseEnum) {
+    return new Result<T>(responseEnum.getCode(), responseEnum.getMessage());
   }
 
-  public static <T> Result<T> failure(MessageEnum messageEnum, T data) {
-    Result<T> result = failure(messageEnum);
+  public static <T> Result<T> failure(ResponseEnum responseEnum, T data) {
+    Result<T> result = failure(responseEnum);
     result.setData(data);
     return result;
   }

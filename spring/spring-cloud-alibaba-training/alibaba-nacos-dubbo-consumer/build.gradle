@@ -6,6 +6,7 @@ dependencies {
   implementation('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery')
   implementation('org.springframework.boot:spring-boot-starter-webflux')
   implementation('org.springframework.cloud:spring-cloud-starter-openfeign:2.2.3.RELEASE')
+  implementation('org.springdoc:springdoc-openapi-ui:1.4.3')
   testImplementation('org.springframework.boot:spring-boot-starter-test') {
     exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
   }

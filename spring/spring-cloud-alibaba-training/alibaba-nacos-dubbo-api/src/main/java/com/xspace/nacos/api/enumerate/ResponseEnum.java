@@ -1,11 +1,10 @@
 package com.xspace.nacos.api.enumerate;
 
-import java.util.Objects;
-
-public enum MessageEnum {
+public enum ResponseEnum implements IEnum<Integer>{
   /*** 通用部分 100 - 599***/
   SUCCESS(200, "成功请求"),
   REDIRECT(301, "重定向"),
+  BAD_REQUEST(400, "错误的请求"),
   UNAUTHORIZED(401, "未认证（签名错误）"),
   NOT_FOUND(404, "资源未找到"),
   SERVER_ERROR(500, "服务器错误"),
@@ -19,18 +18,9 @@ public enum MessageEnum {
   private Integer code;
   private String message;
 
-  MessageEnum(Integer code, String message) {
+  ResponseEnum(Integer code, String message) {
     this.code = code;
     this.message = message;
-  }
-
-  public static MessageEnum getByCode(Integer code) {
-    for (MessageEnum enums : values()) {
-      if (Objects.equals(enums.getCode(), code)) {
-        return enums;
-      }
-    }
-    return null;
   }
 
   public Integer getCode() {
@@ -47,5 +37,10 @@ public enum MessageEnum {
 
   public void setMessage(String message) {
     this.message = message;
+  }
+
+  @Override
+  public Integer getValue() {
+    return this.code;
   }
 }

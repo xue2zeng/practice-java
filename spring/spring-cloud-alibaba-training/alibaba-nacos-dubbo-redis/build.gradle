@@ -1,0 +1,14 @@
+dependencies {
+    implementation ('org.springframework.boot:spring-boot-starter-data-redis') {
+        exclude group: 'io.lettuce', module: 'lettuce-core'
+    }
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.1'
+    implementation 'redis.clients:jedis:3.3.0'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

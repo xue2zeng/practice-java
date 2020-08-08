@@ -66,12 +66,6 @@ allprojects {
   group 'com.xspace.${projectName}'
   version '1.0-SNAPSHOT'
 
-  // 指定运行环境，java
-  apply plugin: 'java'
-  // 指定ide环境，idea
-  apply plugin: 'idea'
-
-  // 定义全局变量
   // 定义全局变量
   ext {
     projectName = rootProject.name

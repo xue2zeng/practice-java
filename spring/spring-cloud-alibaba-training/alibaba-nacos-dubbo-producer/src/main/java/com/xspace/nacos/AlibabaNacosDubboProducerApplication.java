@@ -21,7 +21,7 @@ public class AlibabaNacosDubboProducerApplication {
   static class TestController {
     @GetMapping("/hello")
     public String hello(@RequestParam String name) {
-      log.info("invoked name = " + name);
+      log.info("invoked name = {}", name);
       return "hello " + name;
     }
   }

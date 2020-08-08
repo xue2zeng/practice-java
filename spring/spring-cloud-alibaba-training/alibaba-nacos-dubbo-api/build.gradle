@@ -1,7 +1,12 @@
 /** 需要org.springframework.boot插件 不需要打包成可执行的jar */
 
 dependencies {
+  implementation project(':alibaba-nacos-dubbo-redis')
   implementation 'org.springframework.boot:spring-boot-starter-web'
+  implementation 'javax.ws.rs:javax.ws.rs-api:2.1.1'
+  implementation 'commons-codec:commons-codec:1.14'
+  implementation 'com.alibaba:fastjson:1.2.72'
+  implementation 'redis.clients:jedis:3.3.0'
   testImplementation('org.springframework.boot:spring-boot-starter-test') {
     exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
   }
