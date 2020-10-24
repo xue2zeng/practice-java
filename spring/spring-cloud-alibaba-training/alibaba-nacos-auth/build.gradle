@@ -1,0 +1,12 @@
+dependencies {
+    api project(':alibaba-nacos-dubbo-api')
+    api 'org.springframework.boot:spring-boot-starter-web'
+    api ('com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery')
+    testCompile('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

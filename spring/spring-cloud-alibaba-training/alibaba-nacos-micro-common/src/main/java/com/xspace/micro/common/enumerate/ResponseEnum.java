@@ -1,6 +1,10 @@
-package com.xspace.nacos.api.enumerate;
+package com.xspace.micro.common.enumerate;
 
-public enum ResponseEnum implements BaseEnum<ResponseEnum, Integer> {
+import com.xspace.micro.common.core.IntArrayValuable;
+
+import java.util.Arrays;
+
+public enum ResponseEnum implements BaseEnum<ResponseEnum, Integer>, IntArrayValuable {
   /*** 通用部分 100 - 599***/
   SUCCESS(200, "成功请求"),
   REDIRECT(301, "重定向"),
@@ -42,5 +46,12 @@ public enum ResponseEnum implements BaseEnum<ResponseEnum, Integer> {
   @Override
   public Integer getValue() {
     return this.code;
+  }
+
+  public static final int[] ARRAYS = Arrays.stream(values()).mapToInt(ResponseEnum::getValue).toArray();
+
+  @Override
+  public int[] array() {
+    return ARRAYS;
   }
 }

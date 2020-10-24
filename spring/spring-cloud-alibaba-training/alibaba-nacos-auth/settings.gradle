@@ -1,0 +1,3 @@
+rootProject.name = 'alibaba-nacos-auth'
+
+include 'alibaba-nacos-authentication'
