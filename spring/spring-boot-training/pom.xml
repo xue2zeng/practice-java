@@ -51,7 +51,7 @@
     <jetcache.version>2.6.0</jetcache.version>
     <commons-pool.version>2.8.0</commons-pool.version>
 
-    <logback.version>1.2.3</logback.version>
+    <logback.version>1.2.9</logback.version>
     <logstash-logback-encoder.version>6.4</logstash-logback-encoder.version>
 
     <netty.version>4.1.53.Final</netty.version>
